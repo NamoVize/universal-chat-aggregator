@@ -36,7 +36,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
-    "slack-sdk": "^3.23.0",
+   "@slack/web-api": "^6.8.1",
     "styled-components": "^6.0.7",
     "twilio": "^4.14.1",
     "uuid": "^9.0.0",
