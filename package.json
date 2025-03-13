@@ -1,0 +1,97 @@
+{
+  "name": "universal-chat-aggregator",
+  "version": "1.0.0",
+  "description": "A single app that combines messages from various messaging platforms into a unified chat interface",
+  "main": "electron/main.js",
+  "author": "NamoVize",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "build": "npm run react-build && electron-builder build --win --mac --linux",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "setup": "node scripts/setup.js"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/material": "^5.14.3",
+    "axios": "^1.4.0",
+    "discord.js": "^14.12.1",
+    "electron-log": "^4.4.8",
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.1.1",
+    "emoji-mart": "^5.5.2",
+    "express": "^4.18.2",
+    "keytar": "^7.9.0",
+    "node-fetch": "^3.3.2",
+    "node-telegram-bot-api": "^0.61.0",
+    "puppeteer": "^20.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "5.0.1",
+    "slack-sdk": "^3.23.0",
+    "styled-components": "^6.0.7",
+    "twilio": "^4.14.1",
+    "uuid": "^9.0.0",
+    "whatsapp-web.js": "^1.22.1",
+    "ws": "^8.13.0",
+    "zustand": "^4.4.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.9",
+    "@types/react": "^18.2.19",
+    "@types/react-dom": "^18.2.7",
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^25.3.2",
+    "electron-builder": "^24.6.3",
+    "electron-reload": "^2.0.0-alpha.1",
+    "typescript": "^5.1.6",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.namovize.universalchataggregator",
+    "productName": "Universal Chat Aggregator",
+    "files": [
+      "build/**/*",
+      "electron/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": ["nsis"]
+    },
+    "mac": {
+      "target": ["dmg"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
