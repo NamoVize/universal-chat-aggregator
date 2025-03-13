@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Message animations */
+.message-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.message-exit {
+  opacity: 1;
+}
+
+.message-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* For chat bubbles */
+.chat-bubble-self {
+  background-color: #7289da;
+  color: white;
+  border-radius: 18px 18px 0 18px;
+  align-self: flex-end;
+}
+
+.chat-bubble-other {
+  background-color: #2f3136;
+  color: white;
+  border-radius: 18px 18px 18px 0;
+  align-self: flex-start;
+}
+
+/* Platform specific colors */
+.platform-whatsapp {
+  --platform-color: #25D366;
+}
+
+.platform-telegram {
+  --platform-color: #0088cc;
+}
+
+.platform-discord {
+  --platform-color: #7289da;
+}
+
+.platform-slack {
+  --platform-color: #4A154B;
+}
+
+.platform-messenger {
+  --platform-color: #00B2FF;
+}
+
+/* Animation for typing indicator */
+@keyframes typingAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  28% {
+    transform: translateY(-5px);
+  }
+  44% {
+    transform: translateY(0px);
+  }
+}
+
+.typing-dot {
+  animation: typingAnimation 1.5s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 200ms;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 300ms;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 400ms;
+}
+
+/* Full height layout */
+html, body, #root {
+  height: 100%;
+}
+
+/* Emoji picker custom styles */
+.emoji-mart {
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+/* Message reactions */
+.reaction-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.reaction-item {
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.reaction-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.reaction-item.selected {
+  background-color: rgba(114, 137, 218, 0.3);
+}
+
+/* Platform connection status */
+.connection-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-connected {
+  background-color: #43b581;
+}
+
+.status-connecting {
+  background-color: #faa61a;
+}
+
+.status-disconnected {
+  background-color: #f04747;
+}
